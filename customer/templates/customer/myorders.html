@@ -1,0 +1,41 @@
+<!--<!DOCTYPE html>-->
+
+{%extends 'customer/base.html'%}
+{%block body_block%}
+{%for order in orders%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <table class="table">
+                <tr>
+                    <td>.</td>
+                    <td>id</td>
+                    <td>product</td>
+                    <td>address</td>
+                    <td>status</td>
+                    <td>phone number</td>
+                    <td>expected delivery</td>
+
+                </tr>
+                <tr>
+                    <td><img src="{{order.product.image.url}}" alt="" width="200px" height="200px"></td>
+                    <td>{{order.id}}</td>
+
+                    <td>{{order.product}}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{order.status}}</td>
+                    <td>{{order.phone_number}}</td>
+                    <td>{{order.expected_delivery_date}}</td>
+                    <td><a href="{%url 'cancelorder' order.id %}" class="btn btn-success">cancel</a></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endfor%}
+{%endblock%}

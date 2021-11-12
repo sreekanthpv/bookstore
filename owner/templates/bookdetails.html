@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    {{book.book_name}}
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">author: {{book.author}}</li>
+                    <li class="list-group-item">price :{{book.price}}</li>
+                    <li class="list-group-item">copies :{{book.copies}}</li>
+                      <li class="list-group-item"><img src="{{book.image.url}}" alt="" height="150px" width="150px"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4 ">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit">search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table  mt-5 ps-5">
+                <tr>
+                    <td>img</td>
+                    <td>bookname</td>
+                    <td>author</td>
+                    <td>price</td>
+                    <td>copies</td>
+                    <td colspan="1" class="text-center">
+                       action
+                    </td>
+                </tr>
+
+                {%for book in books%}
+                    <tr>
+                        <td><img src="{{book.image.url}}" alt="" width="200px" height="200px"></td>
+                        <td>{{book.book_name}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.price}}</td>
+                        <td>{{book.copies}}</td>
+                       <td>
+                             <a href="{%url 'bookdetail' book.id %}" class="btn btn-primary">view</a>
+                           <a href="{%url 'bookupdate' book.id%}" class="btn btn-info">update</a>
+                           <a href="{%url 'bookremove' book.id%}" class="btn btn-danger">delete</a>
+                       </td>
+
+                    </tr>
+                {%endfor%}
+
+
+            </table>
+
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}
